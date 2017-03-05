@@ -1,0 +1,1448 @@
+{
+  "content": {
+    "connections": [
+      {
+        "id": 1,
+        "service_id": 2,
+        "protocol_id": 2,
+        "protocol": null,
+        "port_number": 22
+      },
+      {
+        "id": 2,
+        "service_id": 3,
+        "protocol_id": 2,
+        "protocol": null,
+        "port_number": 80
+      },
+      {
+        "id": 3,
+        "service_id": 4,
+        "protocol_id": 2,
+        "protocol": null,
+        "port_number": 443
+      },
+      {
+        "id": 4,
+        "service_id": 5,
+        "protocol_id": 2,
+        "protocol": null,
+        "port_number": 53
+      },
+      {
+        "id": 5,
+        "service_id": 5,
+        "protocol_id": 3,
+        "protocol": null,
+        "port_number": 53
+      }
+    ],
+    "environments": [
+      {
+        "id": 1,
+        "template_id": 1,
+        "template": null,
+        "test_case_id": 1,
+        "test_case": null,
+        "git_repository_uri": "/data/clay_generated_conf",
+        "git_user_name": "clay",
+        "git_user_email": "clay@example.com",
+        "design_file_name": "design.json",
+        "template_file_name": "terraform.tf",
+        "test_case_directory_name": "testcases"
+      }
+    ],
+    "node_group_associations": [],
+    "node_groups": [],
+    "node_pvs": [
+      {
+        "id": 1,
+        "name": "physical"
+      },
+      {
+        "id": 2,
+        "name": "virtual"
+      }
+    ],
+    "node_types": [
+      {
+        "id": 1,
+        "name": "L2Switch"
+      },
+      {
+        "id": 2,
+        "name": "L3Switch"
+      },
+      {
+        "id": 3,
+        "name": "Firewall"
+      },
+      {
+        "id": 4,
+        "name": "Router"
+      },
+      {
+        "id": 5,
+        "name": "LoadBalancer"
+      },
+      {
+        "id": 6,
+        "name": "Server"
+      },
+      {
+        "id": 7,
+        "name": "Network"
+      }
+    ],
+    "nodes": [
+      {
+        "id": 1,
+        "name": "fwall",
+        "node_type_id": 3,
+        "node_type": null,
+        "node_pv_id": 1,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 8,
+        "name": "l2sw1",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 9,
+        "name": "l2sw2",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 10,
+        "name": "inst1",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 11,
+        "name": "inst2",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 12,
+        "name": "inst3",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 13,
+        "name": "inst4",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 14,
+        "name": "l2sw7",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 15,
+        "name": "tftp",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 16,
+        "name": "l2swk1",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 17,
+        "name": "l2swk2",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 18,
+        "name": "telnethop1",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 19,
+        "name": "telnethop2",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 20,
+        "name": "provisioner",
+        "node_type_id": 6,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 21,
+        "name": "router1",
+        "node_type_id": 4,
+        "node_type": null,
+        "node_pv_id": 1,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      },
+      {
+        "id": 22,
+        "name": "l2swr",
+        "node_type_id": 1,
+        "node_type": null,
+        "node_pv_id": 2,
+        "node_pv": null,
+        "remark": {
+          "String": "",
+          "Valid": false
+        },
+        "ports": null,
+        "node_groups": null
+      }
+    ],
+    "ports": [
+      {
+        "id": 1,
+        "node_id": 1,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth1",
+        "destination_port_id": {
+          "Int64": 18,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "84:b5:9c:56:fa:c0",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.0.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 2,
+        "node_id": 1,
+        "node": null,
+        "layer": 3,
+        "number": 2,
+        "name": "eth2",
+        "destination_port_id": {
+          "Int64": 21,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "84:b5:9c:56:fa:c5",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.1.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 13,
+        "node_id": 1,
+        "node": null,
+        "layer": 1,
+        "number": 3,
+        "name": "eth3",
+        "destination_port_id": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 14,
+        "node_id": 1,
+        "node": null,
+        "layer": 1,
+        "number": 4,
+        "name": "eth4",
+        "destination_port_id": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 15,
+        "node_id": 1,
+        "node": null,
+        "layer": 1,
+        "number": 5,
+        "name": "eth5",
+        "destination_port_id": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 16,
+        "node_id": 1,
+        "node": null,
+        "layer": 3,
+        "number": 6,
+        "name": "eth6",
+        "destination_port_id": {
+          "Int64": 28,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "84:b5:9c:56:fa:cb",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.1.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 17,
+        "node_id": 1,
+        "node": null,
+        "layer": 3,
+        "number": 7,
+        "name": "eth7",
+        "destination_port_id": {
+          "Int64": 42,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "84:b5:9c:56:fa:ca",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.200.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 18,
+        "node_id": 8,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 1,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 19,
+        "node_id": 8,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 20,
+        "node_id": 8,
+        "node": null,
+        "layer": 1,
+        "number": 3,
+        "name": "p2",
+        "destination_port_id": {
+          "Int64": 25,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 21,
+        "node_id": 9,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 2,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 22,
+        "node_id": 9,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 26,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 23,
+        "node_id": 9,
+        "node": null,
+        "layer": 1,
+        "number": 3,
+        "name": "p2",
+        "destination_port_id": {
+          "Int64": 27,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 24,
+        "node_id": 10,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 19,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:00:00:01",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.0.10",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 25,
+        "node_id": 11,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 20,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:00:00:02",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.0.11",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 26,
+        "node_id": 12,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 22,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:00:00:03",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.1.10",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 27,
+        "node_id": 13,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 23,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:00:00:04",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "10.0.1.11",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 28,
+        "node_id": 14,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 16,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 29,
+        "node_id": 14,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 36,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 30,
+        "node_id": 14,
+        "node": null,
+        "layer": 1,
+        "number": 3,
+        "name": "p2",
+        "destination_port_id": {
+          "Int64": 31,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 31,
+        "node_id": 15,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 30,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:00:00:10",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.1.10",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 32,
+        "node_id": 16,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 37,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 33,
+        "node_id": 16,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 38,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 34,
+        "node_id": 17,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 39,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 35,
+        "node_id": 17,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 40,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 36,
+        "node_id": 18,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "ftptap",
+        "destination_port_id": {
+          "Int64": 29,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:aa:00:05",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.1.2",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 37,
+        "node_id": 18,
+        "node": null,
+        "layer": 3,
+        "number": 2,
+        "name": "hoptap1",
+        "destination_port_id": {
+          "Int64": 32,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:aa:00:04",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.2.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 38,
+        "node_id": 19,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "hoptap2",
+        "destination_port_id": {
+          "Int64": 33,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:aa:00:03",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.2.2",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 39,
+        "node_id": 19,
+        "node": null,
+        "layer": 3,
+        "number": 2,
+        "name": "provtap",
+        "destination_port_id": {
+          "Int64": 34,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:aa:00:02",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.4.1",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 40,
+        "node_id": 20,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth0",
+        "destination_port_id": {
+          "Int64": 35,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "10:54:ff:aa:00:01",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.4.2",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 41,
+        "node_id": 21,
+        "node": null,
+        "layer": 3,
+        "number": 1,
+        "name": "eth8",
+        "destination_port_id": {
+          "Int64": 43,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "52:56:01:00:01:aa",
+          "Valid": true
+        },
+        "ipv4_address": {
+          "String": "192.168.200.2",
+          "Valid": true
+        },
+        "ipv4_prefix": {
+          "Int64": 24,
+          "Valid": true
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 42,
+        "node_id": 22,
+        "node": null,
+        "layer": 1,
+        "number": 1,
+        "name": "p0",
+        "destination_port_id": {
+          "Int64": 17,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      },
+      {
+        "id": 43,
+        "node_id": 22,
+        "node": null,
+        "layer": 1,
+        "number": 2,
+        "name": "p1",
+        "destination_port_id": {
+          "Int64": 41,
+          "Valid": true
+        },
+        "destination_port": null,
+        "mac_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_address": {
+          "String": "",
+          "Valid": false
+        },
+        "ipv4_prefix": {
+          "Int64": 0,
+          "Valid": false
+        },
+        "remark": {
+          "String": "",
+          "Valid": false
+        }
+      }
+    ],
+    "protocols": [
+      {
+        "id": 1,
+        "name": "icmp"
+      },
+      {
+        "id": 2,
+        "name": "tcp"
+      },
+      {
+        "id": 3,
+        "name": "udp"
+      }
+    ],
+    "requirements": [
+      {
+        "id": 6,
+        "source_port_id": 24,
+        "source_port": null,
+        "destination_port_id": 25,
+        "destination_port": null,
+        "service_id": 1,
+        "service": null,
+        "accessibility": true
+      },
+      {
+        "id": 7,
+        "source_port_id": 24,
+        "source_port": null,
+        "destination_port_id": 1,
+        "destination_port": null,
+        "service_id": 1,
+        "service": null,
+        "accessibility": true
+      },
+      {
+        "id": 9,
+        "source_port_id": 24,
+        "source_port": null,
+        "destination_port_id": 26,
+        "destination_port": null,
+        "service_id": 1,
+        "service": null,
+        "accessibility": false
+      },
+      {
+        "id": 10,
+        "source_port_id": 26,
+        "source_port": null,
+        "destination_port_id": 27,
+        "destination_port": null,
+        "service_id": 1,
+        "service": null,
+        "accessibility": true
+      },
+      {
+        "id": 12,
+        "source_port_id": 26,
+        "source_port": null,
+        "destination_port_id": 24,
+        "destination_port": null,
+        "service_id": 1,
+        "service": null,
+        "accessibility": false
+      }
+    ],
+    "services": [
+      {
+        "id": 1,
+        "name": "ping",
+        "connections": null
+      },
+      {
+        "id": 2,
+        "name": "ssh",
+        "connections": null
+      },
+      {
+        "id": 3,
+        "name": "http",
+        "connections": null
+      },
+      {
+        "id": 4,
+        "name": "https",
+        "connections": null
+      },
+      {
+        "id": 5,
+        "name": "dns",
+        "connections": null
+      }
+    ],
+    "template_external_parameters": [],
+    "templates": [
+      {
+        "id": 1,
+        "name": "terraform",
+        "template_content": "provider \"openvnet\" {\n  api_endpoint = \"http://172.16.3.10:9090/api/1.0\"\n}\n\n#\n# MAC address range for use in datapath-network etc.\n#\n\nresource \"openvnet_mac_range_group\" \"mrg\" {\n  uuid = \"mrg-dpg\"\n\n  mac_range {\n    begin_mac_address = \"08:00:27:aa:00:00\"\n    end_mac_address   = \"08:00:27:aa:ff:ff\"\n  }\n}\n\n#\n# Physical network\n#\n\nresource \"openvnet_network\" \"physical-network\" {\n  uuid         = \"nw-phys1\"\n  display_name = \"physical network that CI and ofs are on\"\n  ipv4_network = \"172.16.4.0\"\n  ipv4_prefix  = 24\n  network_mode = \"physical\"\n}\n\n#\n# CI datapath\n#\n\nresource \"openvnet_datapath\" \"dp-ci\" {\n  uuid         = \"dp-ci\"\n  node_id      = \"vna1\"\n  display_name = \"ci_datapath\"\n  dpid         = \"0x0000aaaaaaaaaaaa\"\n}\n\nresource \"openvnet_interface\" \"if-host-ci\" {\n  uuid                = \"if-ci\"\n  mode                = \"host\"\n  port_name           = \"eth1\"\n  mac_address         = \"02:01:00:00:00:01\"\n  owner_datapath_uuid = \"${openvnet_datapath.dp-ci.id}\"\n  network_uuid        = \"${openvnet_network.physical-network.uuid}\"\n  ipv4_address        = \"172.16.4.10\"\n}\n\n#\n# OFS datapath\n#\n\nresource \"openvnet_datapath\" \"dp-ofs\" {\n  uuid         = \"dp-ofs\"\n  node_id      = \"vna2\"\n  display_name = \"ofs_datapath\"\n  dpid         = \"0x0000bbbbbbbbbbbb\"\n}\n\n# The IP lease on the ofs host interface is a fake. OFS and CI are on the\n# same L2 network. This is done because the current tunnel manager code requires\n# an IP lease but we can safely assign a fake one since MAC2MAC tunnels ignore\n# IP addresses anyway. Only works if we're on the same L2 though.\nresource \"openvnet_interface\" \"if-host-ofs\" {\n  uuid                = \"if-ofs\"\n  mode                = \"host\"\n  port_name           = \"eth9\"\n  mac_address         = \"52:56:01:00:01:01\"\n  owner_datapath_uuid = \"${openvnet_datapath.dp-ofs.uuid}\"\n  network_uuid        = \"${openvnet_network.physical-network.uuid}\"\n  ipv4_address        = \"172.16.4.11\" # <= fake\n}\n\nresource \"openvnet_topology\" \"topo-physical\" {\n  uuid = \"topo-physical\"\n  mode = \"simple_underlay\"\n\n  network {\n    uuid = \"${openvnet_network.physical-network.uuid}\"\n  }\n\n  datapath {\n    uuid = \"${openvnet_datapath.dp-ci.uuid}\"\n    interface_uuid = \"${openvnet_interface.if-host-ci.uuid}\"\n  }\n\n  datapath {\n    uuid = \"${openvnet_datapath.dp-ofs.uuid}\"\n    interface_uuid = \"${openvnet_interface.if-host-ofs.uuid}\"\n  }\n}\n\n#\n# Below is the virtual network\n#\n{{- range $index, $segment := .Segments}}\nresource \"openvnet_segment\" \"seg-seg{{$index}}\" {\n  uuid = \"seg-seg{{$index}}\"\n  mode = \"virtual\"\n}\n{{end}}\n\nresource \"openvnet_topology\" \"topo-vnet\" {\n  uuid = \"topo-vnet\"\n  mode = \"simple_overlay\"\n\n  underlay {\n    uuid = \"${openvnet_topology.topo-physical.uuid}\"\n  }\n{{range $index, $segment := .Segments}}\n  segment {\n    uuid = \"${openvnet_segment.seg-seg{{$index}}.uuid}\"\n  }\n{{end}}\n}\n{{- $portMap := map}}\n{{- range $index, $node := .Nodes}}\n{{- $portMap := putToMap $portMap $node.Name 0}}\n{{- end}}\n\n{{range $index, $segment := .Segments}}\n#\n# Interfaces in segment {{$index}}\n#\n{{- range $index2, $port := $segment.Ports}}\n{{- $interfaceIndex := getFromMap $portMap $port.Node.Name}}\n{{- if eq $port.Node.NodePvID 1}}\nresource \"openvnet_interface\" \"{{$port.Node.Name}}-seg{{$index}}\" {\n  uuid                = \"if-{{$port.Node.Name}}{{$port.Name}}\"\n  port_name           = \"{{$port.Name}}\"\n  owner_datapath_uuid = \"${openvnet_datapath.dp-ofs.uuid}\"\n  segment_uuid        = \"${openvnet_segment.seg-seg{{$index}}.uuid}\"\n  mac_address         = \"{{$port.MacAddress.String}}\"\n  mode                = \"vif\"\n}\n{{- else}}\nresource \"openvnet_interface\" \"{{$port.Node.Name}}-{{printf \"%02d\" $interfaceIndex}}\" {\n  uuid                = \"if-{{$port.Node.Name}}{{printf \"%02d\" $interfaceIndex}}\"\n  port_name           = \"${openvdc_instance.{{$port.Node.Name}}.id}_{{printf \"%02d\" $interfaceIndex}}\"\n  segment_uuid        = \"${openvnet_segment.seg-seg{{$index}}.uuid}\"\n  mac_address         = \"{{$port.MacAddress.String}}\"\n  mode                = \"vif\"\n}\n{{- end}}\n{{$interfaceIndex := add $interfaceIndex 1}}\n{{- $portMap := putToMap $portMap $port.Node.Name $interfaceIndex}}\n{{- end}}\n{{- end}}\n\n#\n# OpenVDC instances\n#\n{{- range $index, $node := .Nodes}}\n{{- if eq $node.NodeTypeID 6}}\nresource \"openvdc_instance\" \"{{$node.Name}}\" {\n  template = \"centos/7/lxc\"\n{{range $index2, $port := $node.Ports}}\n  interface {\n    type = \"veth\"\n    bridge = \"ovs\"\n    ipv4addr = \"{{$port.Ipv4Address.String}}\"\n    macaddr = \"{{$port.MacAddress.String}}\"\n  }\n{{end}}\n}\n{{- end}}\n{{end}}\n",
+        "template_external_parameters": null
+      }
+    ],
+    "test_cases": [
+      {
+        "id": 1,
+        "test_patterns": null,
+        "test_runner_script_template": "#!/bin/bash\n\nfunction loadInstanceIDs() {\n  echo \"declare -A instances\"\n  terraform show | egrep -o 'openvdc_instance.[^:]+:' | sed -e 's/openvdc_instance.\\([^:]*\\):/\\1/g' | while read instance_name; do\n    instance_id=`terraform show | grep -a1 \"openvdc_instance.${instance_name}:\" | tail -n1 | awk -F\"= \" '{print $2}'`\n    echo \"instances[${instance_name}]=${instance_id}\"\n  done\n}\n\n`loadInstanceIDs`\n\nwork_dir=\"{{.GitRepositoryURI}}\"\ntestcase_dir=\"${work_dir}/{{.TestCaseDirectoryName}}\"\nresult_file=\"${work_dir}/test_result.txt\"\nlog_file=\"${work_dir}/test_log.txt\"\n\n\\rm -f ${result_file} ${log_file}\n\ncd ${testcase_dir}\n\nfind . -type f -name \"*_server.sh\" | while read server_script; do\n  client_instance_name=\"`echo ${server_script} | awk -F_ '{print $1}'`\"\n  client_instance_id=\"${instances[${client_instance_name}]}\"\n  server_instance_name=\"`echo ${server_script} | awk -F_ '{print $3}'`\"\n  server_instance_id=\"${instances[${server_instance_name}]}\"\n\n  prefix=\"`echo ${server_script} | awk -F'_server' '{print $1}'`\"\n  echo \"----- ${prefix} -----\" >> ${log_file}\n  client_script=\"${prefix}_client.sh\"\n  chmod 755 ${server_script} ${client_script}\n\n  server_log=\"`cat ${server_script} | openvdc console ${server_instance_id}`\"\n  server_script_result=$?\n\n  echo \"+++++ server_log +++++\" >> ${log_file}\n  echo \"${server_log}\" >> ${log_file}\n  if [ ${server_script_result} -ne 0 ]; then\n    echo \"${prefix},NG\" >> ${result_file}\n  else\n    sleep 2\n\n    client_log=\"`cat ${client_script} | openvdc console ${client_instance_id}`\"\n    client_script_result=$?\n\n    echo \"+++++ client_log +++++\" >> ${log_file}\n    echo \"${client_log}\" >> ${log_file}\n    if [ ${client_script_result} -ne 0 ]; then\n      echo \"${prefix},NG\" >> ${result_file}\n    else\n      echo \"${prefix},OK\" >> ${result_file}\n    fi\n  fi\n  echo \"---------------------\" >> ${log_file}\ndone\n"
+      }
+    ],
+    "test_commands": [
+      {
+        "id": 1,
+        "service_name": "ping",
+        "server_script_template": "#!/bin/bash\n# do nothing\n",
+        "client_script_template": "#!/bin/bash\n/bin/ping -c 4 {{.DestinationPort.Ipv4Address.String}}\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+      },
+      {
+        "id": 2,
+        "service_name": "ssh",
+        "server_script_template": "#!/bin/bash\nservice sshd start\n",
+        "client_script_template": "#!/bin/bash\nnc -v -z -w 1 {{.DestinationPort.Ipv4Address.String}} 22\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+      },
+      {
+        "id": 3,
+        "service_name": "http",
+        "server_script_template": "#!/bin/bash\nservice httpd start\n",
+        "client_script_template": "#!/bin/bash\ncurl http://{{.DestinationPort.Ipv4Address.String}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+      },
+      {
+        "id": 4,
+        "service_name": "https",
+        "server_script_template": "#!/bin/bash\nservice httpd start\n",
+        "client_script_template": "#!/bin/bash\ncurl --insecure https://{{.DestinationPort.Ipv4Address.String}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+      }
+    ],
+    "test_patterns": [
+      {
+        "id": 1,
+        "test_command_id": 1,
+        "test_command": null,
+        "test_case_id": 1,
+        "test_case": null
+      },
+      {
+        "id": 2,
+        "test_command_id": 2,
+        "test_command": null,
+        "test_case_id": 1,
+        "test_case": null
+      },
+      {
+        "id": 3,
+        "test_command_id": 3,
+        "test_command": null,
+        "test_case_id": 1,
+        "test_case": null
+      },
+      {
+        "id": 4,
+        "test_command_id": 4,
+        "test_command": null,
+        "test_case_id": 1,
+        "test_case": null
+      }
+    ]
+  }
+}

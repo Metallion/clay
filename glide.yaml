@@ -7,7 +7,7 @@ import:
 - package: github.com/qb0C80aE/loam
   version: develop
 - package: github.com/qb0C80aE/pottery
-  version: develop
+  version: feature/demo
 - package: github.com/serenize/snaker
 - package: github.com/mattn/go-sqlite3
   version: ~1.2.0

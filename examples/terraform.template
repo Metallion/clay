@@ -1,0 +1,169 @@
+provider "openvnet" {
+  api_endpoint = "http://172.16.3.10:9090/api/1.0"
+}
+
+#
+# MAC address range for use in datapath-network etc.
+#
+
+resource "openvnet_mac_range_group" "mrg" {
+  uuid = "mrg-dpg"
+
+  mac_range {
+    begin_mac_address = "08:00:27:aa:00:00"
+    end_mac_address   = "08:00:27:aa:ff:ff"
+  }
+}
+
+#
+# Physical network
+#
+
+resource "openvnet_network" "physical-network" {
+  uuid         = "nw-phys1"
+  display_name = "physical network that CI and ofs are on"
+  ipv4_network = "172.16.4.0"
+  ipv4_prefix  = 24
+  network_mode = "physical"
+}
+
+#
+# CI datapath
+#
+
+resource "openvnet_datapath" "dp-ci" {
+  uuid         = "dp-ci"
+  node_id      = "vna1"
+  display_name = "ci_datapath"
+  dpid         = "0x0000aaaaaaaaaaaa"
+}
+
+resource "openvnet_interface" "if-host-ci" {
+  uuid                = "if-ci"
+  mode                = "host"
+  port_name           = "eth1"
+  mac_address         = "02:01:00:00:00:01"
+  owner_datapath_uuid = "${openvnet_datapath.dp-ci.id}"
+  network_uuid        = "${openvnet_network.physical-network.uuid}"
+  ipv4_address        = "172.16.4.10"
+}
+
+#
+# OFS datapath
+#
+
+resource "openvnet_datapath" "dp-ofs" {
+  uuid         = "dp-ofs"
+  node_id      = "vna2"
+  display_name = "ofs_datapath"
+  dpid         = "0x0000bbbbbbbbbbbb"
+}
+
+# The IP lease on the ofs host interface is a fake. OFS and CI are on the
+# same L2 network. This is done because the current tunnel manager code requires
+# an IP lease but we can safely assign a fake one since MAC2MAC tunnels ignore
+# IP addresses anyway. Only works if we're on the same L2 though.
+resource "openvnet_interface" "if-host-ofs" {
+  uuid                = "if-ofs"
+  mode                = "host"
+  port_name           = "eth9"
+  mac_address         = "52:56:01:00:01:01"
+  owner_datapath_uuid = "${openvnet_datapath.dp-ofs.uuid}"
+  network_uuid        = "${openvnet_network.physical-network.uuid}"
+  ipv4_address        = "172.16.4.11" # <= fake
+}
+
+resource "openvnet_topology" "topo-physical" {
+  uuid = "topo-physical"
+  mode = "simple_underlay"
+
+  network {
+    uuid = "${openvnet_network.physical-network.uuid}"
+  }
+
+  datapath {
+    uuid = "${openvnet_datapath.dp-ci.uuid}"
+    interface_uuid = "${openvnet_interface.if-host-ci.uuid}"
+  }
+
+  datapath {
+    uuid = "${openvnet_datapath.dp-ofs.uuid}"
+    interface_uuid = "${openvnet_interface.if-host-ofs.uuid}"
+  }
+}
+
+#
+# Below is the virtual network
+#
+{{- range $index, $segment := .Segments}}
+resource "openvnet_segment" "seg-seg{{$index}}" {
+  uuid = "seg-seg{{$index}}"
+  mode = "virtual"
+}
+{{end}}
+
+resource "openvnet_topology" "topo-vnet" {
+  uuid = "topo-vnet"
+  mode = "simple_overlay"
+
+  underlay {
+    uuid = "${openvnet_topology.topo-physical.uuid}"
+  }
+{{range $index, $segment := .Segments}}
+  segment {
+    uuid = "${openvnet_segment.seg-seg{{$index}}.uuid}"
+  }
+{{end}}
+}
+{{- $portMap := map}}
+{{- range $index, $node := .Nodes}}
+{{- $portMap := putToMap $portMap $node.Name 0}}
+{{- end}}
+
+{{range $index, $segment := .Segments}}
+#
+# Interfaces in segment {{$index}}
+#
+{{- range $index2, $port := $segment.Ports}}
+{{- $interfaceIndex := getFromMap $portMap $port.Node.Name}}
+{{- if eq $port.Node.NodePvID 1}}
+resource "openvnet_interface" "{{$port.Node.Name}}-seg{{$index}}" {
+  uuid                = "if-{{$port.Node.Name}}{{$port.Name}}"
+  port_name           = "{{$port.Name}}"
+  owner_datapath_uuid = "${openvnet_datapath.dp-ofs.uuid}"
+  segment_uuid        = "${openvnet_segment.seg-seg{{$index}}.uuid}"
+  mac_address         = "{{$port.MacAddress.String}}"
+  mode                = "vif"
+}
+{{- else}}
+resource "openvnet_interface" "{{$port.Node.Name}}-{{printf "%02d" $interfaceIndex}}" {
+  uuid                = "if-{{$port.Node.Name}}{{printf "%02d" $interfaceIndex}}"
+  port_name           = "${openvdc_instance.{{$port.Node.Name}}.id}_{{printf "%02d" $interfaceIndex}}"
+  segment_uuid        = "${openvnet_segment.seg-seg{{$index}}.uuid}"
+  mac_address         = "{{$port.MacAddress.String}}"
+  mode                = "vif"
+}
+{{- end}}
+{{$interfaceIndex := add $interfaceIndex 1}}
+{{- $portMap := putToMap $portMap $port.Node.Name $interfaceIndex}}
+{{- end}}
+{{- end}}
+
+#
+# OpenVDC instances
+#
+{{- range $index, $node := .Nodes}}
+{{- if eq $node.NodeTypeID 6}}
+resource "openvdc_instance" "{{$node.Name}}" {
+  template = "centos/7/lxc"
+{{range $index2, $port := $node.Ports}}
+  interface {
+    type = "veth"
+    bridge = "ovs"
+    ipv4addr = "{{$port.Ipv4Address.String}}"
+    macaddr = "{{$port.MacAddress.String}}"
+  }
+{{end}}
+}
+{{- end}}
+{{end}}

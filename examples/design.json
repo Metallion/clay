@@ -1296,9 +1296,15 @@
     "requirements": [
       {
         "id": 6,
-        "source_port_id": 24,
+        "source_port_id": {
+          "Int64": 24,
+          "Valid": true
+        },
         "source_port": null,
-        "destination_port_id": 25,
+        "destination_port_id": {
+          "Int64": 25,
+          "Valid": true
+        },
         "destination_port": null,
         "service_id": 1,
         "service": null,
@@ -1306,9 +1312,15 @@
       },
       {
         "id": 7,
-        "source_port_id": 24,
+        "source_port_id": {
+          "Int64": 24,
+          "Valid": true
+        },
         "source_port": null,
-        "destination_port_id": 1,
+        "destination_port_id": {
+          "Int64": 1,
+          "Valid": true
+        },
         "destination_port": null,
         "service_id": 1,
         "service": null,
@@ -1316,9 +1328,15 @@
       },
       {
         "id": 9,
-        "source_port_id": 24,
+        "source_port_id": {
+          "Int64": 24,
+          "Valid": true
+        },
         "source_port": null,
-        "destination_port_id": 26,
+        "destination_port_id": {
+          "Int64": 26,
+          "Valid": true
+        },
         "destination_port": null,
         "service_id": 1,
         "service": null,
@@ -1326,9 +1344,15 @@
       },
       {
         "id": 10,
-        "source_port_id": 26,
+        "source_port_id": {
+          "Int64": 26,
+          "Valid": true
+        },
         "source_port": null,
-        "destination_port_id": 27,
+        "destination_port_id": {
+          "Int64": 27,
+          "Valid": true
+        },
         "destination_port": null,
         "service_id": 1,
         "service": null,
@@ -1336,9 +1360,15 @@
       },
       {
         "id": 12,
-        "source_port_id": 26,
+        "source_port_id": {
+          "Int64": 26,
+          "Valid": true
+        },
         "source_port": null,
-        "destination_port_id": 24,
+        "destination_port_id": {
+          "Int64": 24,
+          "Valid": true
+        },
         "destination_port": null,
         "service_id": 1,
         "service": null,
@@ -1385,33 +1415,33 @@
       {
         "id": 1,
         "test_patterns": null,
-        "test_runner_script_template": "#!/bin/bash\n\nfunction loadInstanceIDs() {\n  echo \"declare -A instances\"\n  terraform show | egrep -o 'openvdc_instance.[^:]+:' | sed -e 's/openvdc_instance.\\([^:]*\\):/\\1/g' | while read instance_name; do\n    instance_id=`terraform show | grep -a1 \"openvdc_instance.${instance_name}:\" | tail -n1 | awk -F\"= \" '{print $2}'`\n    echo \"instances[${instance_name}]=${instance_id}\"\n  done\n}\n\n`loadInstanceIDs`\n\nwork_dir=\"{{.GitRepositoryURI}}\"\ntestcase_dir=\"${work_dir}/{{.TestCaseDirectoryName}}\"\nresult_file=\"${work_dir}/test_result.txt\"\nlog_file=\"${work_dir}/test_log.txt\"\n\n\\rm -f ${result_file} ${log_file}\n\ncd ${testcase_dir}\n\nfind . -type f -name \"*_server.sh\" | while read server_script; do\n  client_instance_name=\"`echo ${server_script} | awk -F_ '{print $1}'`\"\n  client_instance_id=\"${instances[${client_instance_name}]}\"\n  server_instance_name=\"`echo ${server_script} | awk -F_ '{print $3}'`\"\n  server_instance_id=\"${instances[${server_instance_name}]}\"\n\n  prefix=\"`echo ${server_script} | awk -F'_server' '{print $1}'`\"\n  echo \"----- ${prefix} -----\" >> ${log_file}\n  client_script=\"${prefix}_client.sh\"\n  chmod 755 ${server_script} ${client_script}\n\n  server_log=\"`cat ${server_script} | openvdc console ${server_instance_id}`\"\n  server_script_result=$?\n\n  echo \"+++++ server_log +++++\" >> ${log_file}\n  echo \"${server_log}\" >> ${log_file}\n  if [ ${server_script_result} -ne 0 ]; then\n    echo \"${prefix},NG\" >> ${result_file}\n  else\n    sleep 2\n\n    client_log=\"`cat ${client_script} | openvdc console ${client_instance_id}`\"\n    client_script_result=$?\n\n    echo \"+++++ client_log +++++\" >> ${log_file}\n    echo \"${client_log}\" >> ${log_file}\n    if [ ${client_script_result} -ne 0 ]; then\n      echo \"${prefix},NG\" >> ${result_file}\n    else\n      echo \"${prefix},OK\" >> ${result_file}\n    fi\n  fi\n  echo \"---------------------\" >> ${log_file}\ndone\n"
+        "test_runner_script_template": "#!/bin/bash\n\nfunction loadInstanceIDs() {\n  echo \"declare -A instances\"\n  terraform show | egrep -o 'openvdc_instance.[^:]+:' | sed -e 's/openvdc_instance.\\([^:]*\\):/\\1/g' | while read instance_name; do\n    instance_id=`terraform show | grep -a1 \"openvdc_instance.${instance_name}:\" | tail -n1 | awk -F\"= \" '{print $2}'`\n    echo \"instances[${instance_name}]=${instance_id}\"\n  done\n}\n\n`loadInstanceIDs`\n\nwork_dir=\"/var/lib/jenkins/workspace/network.test\"\ntestcase_dir=\"${work_dir}/{{.TestCaseDirectoryName}}\"\nresult_file=\"${work_dir}/test_result.txt\"\nlog_file=\"${work_dir}/test_log.txt\"\n\n\\rm -f ${result_file} ${log_file}\n\ncd ${testcase_dir}\n\nfind . -type f -name \"*_server.sh\" | while read server_script; do\n  client_instance_name=\"`echo ${server_script} | awk -F_ '{print $1}' | sed -e 's/\\.\\///g'`\"\n  client_instance_id=\"${instances[${client_instance_name}]}\"\n  server_instance_name=\"`echo ${server_script} | awk -F_ '{print $3}'`\"\n  server_instance_id=\"${instances[${server_instance_name}]}\"\n\n  prefix=\"`echo ${server_script} | awk -F'_server' '{print $1}'`\"\n  echo \"----- ${prefix} -----\" | tee -a ${log_file}\n  client_script=\"${prefix}_client.sh\"\n  chmod 755 ${server_script} ${client_script}\n\n  if [ \"\" == \"${server_instance_id}\" ]; then\n    server_log=\"skipped because the server is a physical device.\"\n    server_script_result=0\n  else\n    openvdc wait ${server_instance_id} running\n    server_log=\"`cat ${server_script} | openvdc console ${server_instance_id}`\"\n    server_script_result=$?\n  fi\n\n  echo \"+++++ server_log +++++\" | tee -a ${log_file}\n  echo \"${server_log}\" | tee -a ${log_file}\n  if [ ${server_script_result} -ne 0 ]; then\n    echo \"${prefix},NG\" | tee -a ${result_file}\n  else\n    sleep 2\n\n    openvdc wait ${client_instance_id} running\n    client_log=\"`cat ${client_script} | openvdc console ${client_instance_id}`\"\n    client_script_result=$?\n\n    echo \"+++++ client_log +++++\" | tee -a ${log_file}\n    echo \"${client_log}\" | tee -a ${log_file}\n    if [ ${client_script_result} -ne 0 ]; then\n      echo \"${prefix},NG\" | tee -a ${result_file}\n    else\n      echo \"${prefix},OK\" | tee -a ${result_file}\n    fi\n  fi\n  echo \"---------------------\" | tee -a ${log_file}\ndone\n"
       }
     ],
     "test_commands": [
       {
         "id": 1,
         "service_name": "ping",
-        "server_script_template": "#!/bin/bash\n# do nothing\n",
-        "client_script_template": "#!/bin/bash\n/bin/ping -c 4 {{.DestinationPort.Ipv4Address.String}}\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+        "server_script_template": "#!/bin/bash\necho \"do nothing.\"\n",
+        "client_script_template": "#!/bin/bash\n{{- $destinationMap := map}}\n{{- if eq .DestinationPort.ID 0}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" \"8.8.8.8\"}}\n{{- else}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" .DestinationPort.Ipv4Address.String}}\n{{- end}}\nping -W 5 -c 1 {{$destinationMap.ipv4Address}}\nping -W 5 -c 1 {{$destinationMap.ipv4Address}}\nping -W 5 -c 1 {{$destinationMap.ipv4Address}}\nping -c 4 {{$destinationMap.ipv4Address}}\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
       },
       {
         "id": 2,
         "service_name": "ssh",
         "server_script_template": "#!/bin/bash\nservice sshd start\n",
-        "client_script_template": "#!/bin/bash\nnc -v -z -w 1 {{.DestinationPort.Ipv4Address.String}} 22\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+        "client_script_template": "#!/bin/bash\n{{- $destinationMap := map}}\n{{- if eq .DestinationPort.ID 0}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" \"8.8.8.8\"}}\n{{- else}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" .DestinationPort.Ipv4Address.String}}\n{{- end}}\n{{ $destinationMap }}\nnc -v -z -w 1 {{$destinationMap.ipv4Address}} 22\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
       },
       {
         "id": 3,
         "service_name": "http",
         "server_script_template": "#!/bin/bash\nservice httpd start\n",
-        "client_script_template": "#!/bin/bash\ncurl http://{{.DestinationPort.Ipv4Address.String}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+        "client_script_template": "#!/bin/bash\n{{- $destinationMap := map}}\n{{- if eq .DestinationPort.ID 0}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" \"8.8.8.8\"}}\n{{- else}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" .DestinationPort.Ipv4Address.String}}\n{{- end}}\ncurl http://{{$destinationMap.ipv4Address}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
       },
       {
         "id": 4,
         "service_name": "https",
         "server_script_template": "#!/bin/bash\nservice httpd start\n",
-        "client_script_template": "#!/bin/bash\ncurl --insecure https://{{.DestinationPort.Ipv4Address.String}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
+        "client_script_template": "#!/bin/bash\n{{- $destinationMap := map}}\n{{- if eq .DestinationPort.ID 0}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" \"8.8.8.8\"}}\n{{- else}}\n{{- $destinationMap := putToMap $destinationMap \"ipv4Address\" .DestinationPort.Ipv4Address.String}}\n{{- end}}\n{{ $destinationMap }}\ncurl --insecure https://{{$destinationMap.ipv4Address}}/\n{{if eq .Accessibility true}}\nif [ $? -eq 0 ]; then\n  exit 0\nelse\n  exit 1\nfi\n{{else}}\nif [ $? -eq 0 ]; then\n  exit 1\nelse\n  exit 0\nfi\n{{end}}\n"
       }
     ],
     "test_patterns": [

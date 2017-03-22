@@ -1,5 +1,12 @@
 #!/bin/bash
-curl --insecure https://{{.DestinationPort.Ipv4Address.String}}/
+{{- $destinationMap := map}}
+{{- if eq .DestinationPort.ID 0}}
+{{- $destinationMap := putToMap $destinationMap "ipv4Address" "8.8.8.8"}}
+{{- else}}
+{{- $destinationMap := putToMap $destinationMap "ipv4Address" .DestinationPort.Ipv4Address.String}}
+{{- end}}
+{{ $destinationMap }}
+curl --insecure https://{{$destinationMap.ipv4Address}}/
 {{if eq .Accessibility true}}
 if [ $? -eq 0 ]; then
   exit 0
